@@ -1084,6 +1084,20 @@ button:focus-visible {
   }
 }
 
+@media (min-width: 1271px) {
+  .hero-media::after {
+    --hero-edge-repair: max(0px, min(calc(18.5vw - 235px), 6.4vw));
+    content: '';
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(90deg, transparent, rgba(237, 242, 248, 0.96)) right top / var(--hero-edge-repair) 65% no-repeat,
+      linear-gradient(90deg, transparent, rgba(237, 242, 248, 0.96)) right bottom / var(--hero-edge-repair) 8% no-repeat;
+  }
+}
+
 @media (max-width: 1280px) {
   .header-inner,
   .section-container {
