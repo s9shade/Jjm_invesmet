@@ -715,6 +715,97 @@ p {
   color: var(--text);
 }
 
+.mission-vision-section {
+  padding: 22px 0 24px;
+  background: var(--surface);
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.mission-vision-heading h2 {
+  margin-top: 8px;
+  color: var(--navy);
+  font-family: var(--heading-font);
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+:root[data-theme='dark'] .mission-vision-heading h2,
+:root[data-theme='dark'] .mission-vision-copy h3 {
+  color: var(--text);
+}
+
+.mission-vision-grid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 20px;
+}
+
+.mission-vision-card {
+  min-width: 0;
+  min-height: 158px;
+  height: 100%;
+  padding: 22px 24px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  align-items: start;
+  gap: 18px;
+  background: var(--surface-soft);
+  box-shadow: var(--card-shadow);
+}
+
+.mission-vision-icon {
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+}
+
+.icon-mission-vision {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.mission-vision-copy {
+  min-width: 0;
+}
+
+.mission-vision-copy h3 {
+  color: var(--navy);
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 700;
+}
+
+.mission-vision-copy p {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 11.5px;
+  line-height: 1.55;
+  overflow-wrap: break-word;
+}
+
+:root.is-theme-transitioning .mission-vision-section,
+:root.is-theme-transitioning .mission-vision-card {
+  transition:
+    background-color 450ms ease,
+    color 350ms ease,
+    border-color 350ms ease,
+    box-shadow 450ms ease;
+}
+
+:root.is-theme-transitioning .mission-vision-heading h2,
+:root.is-theme-transitioning .mission-vision-copy h3,
+:root.is-theme-transitioning .mission-vision-copy p {
+  transition: color 350ms ease;
+}
+
 .services-section {
   padding: 8px 0 18px;
 }
@@ -1380,6 +1471,33 @@ button:focus-visible {
 @media (max-width: 700px) {
   .section-container {
     width: calc(100% - 36px);
+  }
+
+  .mission-vision-section {
+    padding: 20px 0;
+  }
+
+  .mission-vision-heading h2 {
+    margin-top: 5px;
+    font-size: 18px;
+  }
+
+  .mission-vision-grid {
+    margin-top: 12px;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .mission-vision-card {
+    min-height: 0;
+    padding: 18px;
+    grid-template-columns: 54px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .mission-vision-icon {
+    width: 52px;
+    height: 52px;
   }
 
   .header-inner {

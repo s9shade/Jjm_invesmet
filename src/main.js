@@ -29,6 +29,11 @@ const contactIcons = {
   whatsapp: iconAsset('contacto', '05_whatsapp.png'),
 }
 
+const missionVisionIcons = {
+  vision: iconAsset('nosotros', '01_profesionalismo.png'),
+  mission: iconAsset('contacto', '04_ubicacion.png'),
+}
+
 const benefits = [
   {
     icon: iconAsset('nosotros', '01_profesionalismo.png'),
@@ -217,6 +222,37 @@ document.querySelector('#app').innerHTML = `
               `,
             )
             .join('')}
+        </div>
+      </div>
+    </section>
+
+    <section class="mission-vision-section" aria-labelledby="mission-vision-title">
+      <div class="section-container">
+        <div class="mission-vision-heading" data-reveal="bottom">
+          <p class="section-label">MISIÓN Y VISIÓN</p>
+          <h2 id="mission-vision-title">Principios que guían nuestra operación.</h2>
+        </div>
+
+        <div class="mission-vision-grid">
+          <article class="mission-vision-card" data-reveal="left">
+            <span class="mission-vision-icon">
+              <img class="icon-mission-vision" src="${missionVisionIcons.vision}" alt="" aria-hidden="true" />
+            </span>
+            <div class="mission-vision-copy">
+              <h3>Nuestra Visión</h3>
+              <p>Proveer servicios de seguridad integral que protejan la vida, la integridad y los bienes de nuestros clientes, mediante estrategias basadas en la prevención, la inteligencia y el uso de tecnología, contribuyendo a la reducción de los factores de riesgo.</p>
+            </div>
+          </article>
+
+          <article class="mission-vision-card" data-reveal="right" style="--reveal-delay: 65ms">
+            <span class="mission-vision-icon">
+              <img class="icon-mission-vision" src="${missionVisionIcons.mission}" alt="" aria-hidden="true" />
+            </span>
+            <div class="mission-vision-copy">
+              <h3>Nuestra Misión</h3>
+              <p>La visión apunta a mantenernos como una agencia que no solo reaccione ante incidentes, sino que anticipe escenarios, integre tecnología y análisis de inteligencia, y se convierta en un aliado confiable para empresas, residentes e instituciones.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
