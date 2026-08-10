@@ -545,9 +545,14 @@ p {
   position: absolute;
   z-index: 2;
   inset: 0 auto 0 0;
-  width: 72px;
+  width: clamp(128px, 10.5vw, 192px);
   pointer-events: none;
-  background: linear-gradient(90deg, var(--surface), transparent);
+  background: linear-gradient(
+    90deg,
+    var(--surface) 0%,
+    var(--surface) 4%,
+    transparent 100%
+  );
 }
 
 .hero-media > .hero-camera-image {
@@ -556,6 +561,28 @@ p {
   display: block;
   object-fit: cover;
   object-position: center;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 8%,
+    rgba(0, 0, 0, 0.45) 16%,
+    rgba(0, 0, 0, 0.75) 24%,
+    #000 34%,
+    #000 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 8%,
+    rgba(0, 0, 0, 0.45) 16%,
+    rgba(0, 0, 0, 0.75) 24%,
+    #000 34%,
+    #000 100%
+  );
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
 }
 
 .hero-benefit-icons {
@@ -569,28 +596,16 @@ p {
   pointer-events: none;
 }
 
-.icon-hero-benefit {
+.hero-benefit-slip {
   position: absolute;
-  width: 42px;
-  height: 42px;
-  display: block;
+  z-index: 1;
+  top: 79.19%;
+  left: 52.92%;
+  width: 59.09%;
+  height: auto;
+  display: none;
   object-fit: contain;
   transform: translate(-50%, -50%);
-}
-
-.icon-hero-benefit-1 {
-  top: 76.88%;
-  left: 17.7215%;
-}
-
-.icon-hero-benefit-2 {
-  top: 76.712%;
-  left: 42.1414%;
-}
-
-.icon-hero-benefit-3 {
-  top: 76.825%;
-  left: 70.0949%;
 }
 
 .about-section,
@@ -1098,6 +1113,36 @@ button:focus-visible {
   }
 }
 
+@supports ((mask-composite: intersect) or (-webkit-mask-composite: source-in)) {
+  @media (min-width: 1101px) {
+    .hero-media::after {
+      background: linear-gradient(90deg, transparent, rgba(237, 242, 248, 0.96)) right / var(--hero-edge-repair) 100% no-repeat;
+    }
+
+    .hero-benefit-icons::before {
+      content: '';
+      position: absolute;
+      z-index: 0;
+      inset: 0;
+      background: rgba(237, 242, 248, 0.52);
+      -webkit-backdrop-filter: blur(36px);
+      backdrop-filter: blur(36px);
+      -webkit-mask-image:
+        linear-gradient(90deg, transparent 6.5%, #000 12.18% 93.2%, transparent 98.9%),
+        linear-gradient(180deg, transparent 58.5%, #000 64.87% 91.81%, transparent 98.2%);
+      -webkit-mask-composite: source-in;
+      mask-image:
+        linear-gradient(90deg, transparent 6.5%, #000 12.18% 93.2%, transparent 98.9%),
+        linear-gradient(180deg, transparent 58.5%, #000 64.87% 91.81%, transparent 98.2%);
+      mask-composite: intersect;
+    }
+
+    .hero-benefit-slip {
+      display: block;
+    }
+  }
+}
+
 @media (max-width: 1280px) {
   .header-inner,
   .section-container {
@@ -1296,6 +1341,7 @@ button:focus-visible {
 
   .hero-media::before {
     width: 72px;
+    background: linear-gradient(90deg, var(--surface), transparent);
   }
 
   .hero-media > .hero-camera-image {

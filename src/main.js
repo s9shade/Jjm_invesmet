@@ -15,12 +15,6 @@ const icons = {
     </svg>`,
 }
 
-const heroBenefitIcons = [
-  iconAsset('beneficios', '01_proteccion.png'),
-  iconAsset('beneficios', '02_prevencion.png'),
-  iconAsset('beneficios', '03_respuesta.png'),
-]
-
 const contactIcons = {
   phone: iconAsset('contacto', '01_telefono.png'),
   email: iconAsset('contacto', '02_correo.png'),
@@ -166,17 +160,11 @@ document.querySelector('#app').innerHTML = `
             alt="Cámara de seguridad y principios de protección, prevención y respuesta"
           />
           <span class="hero-benefit-icons" aria-hidden="true">
-            ${heroBenefitIcons
-              .map(
-                (icon, index) => `
-                  <img
-                    class="icon-hero-benefit icon-hero-benefit-${index + 1}"
-                    src="${icon}"
-                    alt=""
-                  />
-                `,
-              )
-              .join('')}
+            <img
+              class="hero-benefit-slip"
+              src="${asset('slip-proteccion-prevencion-respuesta-premium.png')}"
+              alt=""
+            />
           </span>
         </div>
       </div>
