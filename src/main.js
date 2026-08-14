@@ -28,6 +28,9 @@ const missionVisionIcons = {
   mission: iconAsset('contacto', '04_ubicacion.png'),
 }
 
+const serviceWhatsappUrl = (title) =>
+  `https://wa.me/50764215025?text=${encodeURIComponent(`Hola, deseo información sobre ${title}.`)}`
+
 const benefits = [
   {
     icon: iconAsset('nosotros', '01_profesionalismo.png'),
@@ -81,6 +84,7 @@ const services = [
   {
     icon: iconAsset('servicios', '06_gestion_de_crisis.png'),
     title: 'Gestión de Crisis',
+    description: 'Información disponible a solicitud.',
   },
 ]
 
@@ -135,15 +139,25 @@ document.querySelector('#app').innerHTML = `
           <p class="hero-description">
             Soluciones de seguridad privada diseñadas para resguardar lo que más importa: personas, activos e instituciones.
           </p>
-          <a
-            class="primary-cta"
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=invesmetjjm@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span>Conocer servicios</span>
-            ${icons.arrow}
-          </a>
+          <div class="hero-actions">
+            <a
+              class="primary-cta"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=invesmetjjm@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Solicitar cotización</span>
+              ${icons.arrow}
+            </a>
+            <a
+              class="hero-secondary-cta"
+              href="https://wa.me/50764215025"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Hablar con un asesor
+            </a>
+          </div>
         </div>
 
         <div class="hero-logo-stage">
@@ -267,12 +281,75 @@ document.querySelector('#app').innerHTML = `
                   <span class="service-copy">
                     <h3>${title}</h3>
                     ${description ? `<p>${description}</p>` : ''}
+                    <a
+                      class="service-more-link"
+                      href="${serviceWhatsappUrl(title)}"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Conocer más sobre ${title} por WhatsApp"
+                    >
+                      Conocer más
+                    </a>
                   </span>
                   <span class="service-chevron" aria-hidden="true">${icons.chevron}</span>
                 </article>
               `,
             )
             .join('')}
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección placeholder: retirar este bloque cuando no se requiera mostrar testimonios pendientes. -->
+    <section class="testimonials-section" aria-label="Testimonios" data-testimonials-placeholder>
+      <div class="section-container">
+        <div class="testimonials-heading" data-reveal="bottom">
+          <p class="section-label">TESTIMONIOS</p>
+        </div>
+
+        <div class="testimonials-grid">
+          ${Array.from(
+            { length: 3 },
+            (_, index) => `
+              <article
+                class="testimonial-card"
+                data-reveal="bottom"
+                style="--reveal-delay: ${index * 65}ms"
+              >
+                <p>Testimonio pendiente de aprobación</p>
+                <span>Cliente por confirmar</span>
+              </article>
+            `,
+          ).join('')}
+        </div>
+      </div>
+    </section>
+
+    <section class="conversion-cta-section" aria-labelledby="conversion-cta-title">
+      <div class="section-container conversion-cta-panel" data-reveal="bottom">
+        <div class="conversion-cta-copy">
+          <h2 id="conversion-cta-title">Protege lo que has construido.</h2>
+          <p>Cuéntanos qué necesitas y recibe una solución de seguridad adaptada a ti.</p>
+        </div>
+
+        <div class="conversion-cta-actions">
+          <a
+            class="primary-cta conversion-primary-cta"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=invesmetjjm@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>Solicitar evaluación</span>
+            ${icons.arrow}
+          </a>
+          <a
+            class="conversion-secondary-cta"
+            href="https://wa.me/50764215025"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Hablar con un asesor
+          </a>
         </div>
       </div>
     </section>

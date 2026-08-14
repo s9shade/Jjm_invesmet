@@ -409,6 +409,57 @@ p {
   transform: translateX(3px);
 }
 
+.hero-actions {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-actions .primary-cta {
+  margin-top: 0;
+}
+
+.hero-actions > a {
+  max-width: 100%;
+}
+
+.hero-secondary-cta {
+  width: fit-content;
+  min-height: 42px;
+  padding: 8px 16px;
+  border: 1px solid var(--line-gold);
+  border-radius: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--navy);
+  background: transparent;
+  font-size: 12px;
+  font-weight: 700;
+  transition:
+    color 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+:root[data-theme='dark'] .hero-secondary-cta {
+  color: var(--text);
+}
+
+.hero-secondary-cta:hover,
+.hero-secondary-cta:focus-visible {
+  border-color: var(--gold);
+  color: var(--gold-deep);
+  background: rgba(214, 139, 12, 0.06);
+}
+
+:root[data-theme='dark'] .hero-secondary-cta:hover,
+:root[data-theme='dark'] .hero-secondary-cta:focus-visible {
+  color: var(--gold-soft);
+}
+
 .hero-logo-stage {
   position: relative;
   z-index: 3;
@@ -912,8 +963,153 @@ p {
   line-height: 1.42;
 }
 
+.service-more-link {
+  width: fit-content;
+  padding-bottom: 1px;
+  border-bottom: 1px solid transparent;
+  color: var(--gold-deep);
+  font-size: 9px;
+  line-height: 1.35;
+  font-weight: 700;
+  transition:
+    color 160ms ease,
+    border-color 160ms ease;
+}
+
+:root[data-theme='dark'] .service-more-link {
+  color: var(--gold-soft);
+}
+
+.service-more-link:hover,
+.service-more-link:focus-visible {
+  color: var(--gold);
+  border-bottom-color: currentColor;
+}
+
 .service-chevron {
   display: none;
+}
+
+.testimonials-section,
+.conversion-cta-section {
+  background: var(--surface);
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.testimonials-section {
+  padding: 18px 0 20px;
+}
+
+.testimonials-grid {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.testimonial-card {
+  min-width: 0;
+  min-height: 108px;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  background: var(--surface-soft);
+  box-shadow: var(--card-shadow);
+}
+
+.testimonial-card p {
+  color: var(--muted);
+  font-size: 11.5px;
+  line-height: 1.5;
+}
+
+.testimonial-card span {
+  color: var(--gold-deep);
+  font-size: 9.5px;
+  line-height: 1.35;
+  font-weight: 700;
+}
+
+:root[data-theme='dark'] .testimonial-card span {
+  color: var(--gold-soft);
+}
+
+.conversion-cta-section {
+  padding: 4px 0 24px;
+}
+
+.conversion-cta-panel {
+  padding: 26px 32px;
+  border: 1px solid var(--line-gold);
+  border-radius: 7px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 28px;
+  background: linear-gradient(135deg, var(--navy-deep), var(--navy-soft));
+  box-shadow: var(--soft-shadow);
+}
+
+.conversion-cta-copy {
+  min-width: 0;
+}
+
+.conversion-cta-copy h2 {
+  color: #ffffff;
+  font-family: var(--heading-font);
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.conversion-cta-copy p {
+  max-width: 660px;
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.conversion-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.conversion-primary-cta {
+  margin-top: 0;
+}
+
+.conversion-secondary-cta {
+  width: fit-content;
+  min-height: 42px;
+  padding: 8px 16px;
+  border: 1px solid var(--gold-soft);
+  border-radius: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 12px;
+  font-weight: 700;
+  transition:
+    color 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.conversion-secondary-cta:hover,
+.conversion-secondary-cta:focus-visible {
+  color: var(--gold-soft);
+  border-color: var(--gold);
+  background: rgba(255, 255, 255, 0.07);
 }
 
 .site-footer {
@@ -921,8 +1117,8 @@ p {
 }
 
 .footer-grid {
-  min-height: 112px;
-  padding-block: 14px;
+  min-height: 104px;
+  padding-block: 10px 6px;
   display: grid;
   grid-template-columns: 1.25fr 1fr 0.65fr 0.65fr;
   align-items: center;
@@ -1483,6 +1679,10 @@ button:focus-visible {
     line-height: 1.4;
   }
 
+  .service-more-link {
+    font-size: 10px;
+  }
+
   .service-chevron {
     display: block;
     width: 22px;
@@ -1496,10 +1696,32 @@ button:focus-visible {
     stroke-width: 2;
   }
 
+  .testimonials-section {
+    padding: 16px 0 18px;
+  }
+
+  .testimonials-grid {
+    gap: 12px;
+  }
+
+  .conversion-cta-section {
+    padding: 4px 0 20px;
+  }
+
+  .conversion-cta-panel {
+    padding: 24px;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .conversion-cta-actions {
+    justify-content: flex-start;
+  }
+
   .footer-grid {
     grid-template-columns: 1.15fr 1fr 0.75fr;
     align-items: start;
-    padding-block: 20px 14px;
+    padding-block: 16px 8px;
   }
 
   .footer-grid > * {
@@ -1519,8 +1741,8 @@ button:focus-visible {
   .footer-location {
     grid-column: 1 / -1;
     min-height: 45px;
-    margin-top: 10px;
-    padding-top: 12px;
+    margin-top: 6px;
+    padding-top: 10px;
     flex-direction: row;
     justify-content: center;
     border-top: 1px solid var(--line);
@@ -1666,6 +1888,18 @@ button:focus-visible {
     height: 18px;
   }
 
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .hero-secondary-cta {
+    min-height: 39px;
+    padding-inline: 16px;
+    font-size: 10.5px;
+  }
+
   .hero-logo-stage {
     right: 3%;
     bottom: 26px;
@@ -1805,19 +2039,80 @@ button:focus-visible {
     font-size: 8.5px;
   }
 
+  .service-more-link {
+    font-size: 9px;
+  }
+
   .service-chevron {
     width: 17px;
     height: 17px;
   }
 
+  .testimonials-section {
+    padding: 14px 0 16px;
+  }
+
+  .testimonials-grid {
+    margin-top: 8px;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .testimonial-card {
+    min-height: 0;
+    padding: 16px 18px;
+    gap: 8px;
+  }
+
+  .testimonial-card p {
+    font-size: 10.5px;
+  }
+
+  .testimonial-card span {
+    font-size: 9px;
+  }
+
+  .conversion-cta-section {
+    padding: 2px 0 18px;
+  }
+
+  .conversion-cta-panel {
+    padding: 22px 18px;
+    gap: 16px;
+  }
+
+  .conversion-cta-copy h2 {
+    font-size: 22px;
+  }
+
+  .conversion-cta-copy p {
+    font-size: 11.5px;
+  }
+
+  .conversion-cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .conversion-cta-actions > a {
+    width: 100%;
+    max-width: none;
+  }
+
+  .conversion-secondary-cta {
+    min-height: 39px;
+    font-size: 10.5px;
+  }
+
   .footer-grid {
     grid-template-columns: 1fr;
-    padding-block: 16px 10px;
+    padding-block: 10px 2px;
   }
 
   .footer-grid > * {
     min-height: auto;
-    padding: 15px 0;
+    padding: 12px 0;
     border-left: 0;
     border-bottom: 1px solid var(--line);
   }
@@ -1844,14 +2139,15 @@ button:focus-visible {
   .footer-location {
     grid-column: auto;
     margin-top: 0;
-    padding: 14px 0;
+    padding: 10px 0 6px;
     justify-content: flex-start;
     border-top: 0;
     border-bottom: 0;
   }
 
   .footer-bottom {
-    min-height: 42px;
+    min-height: 34px;
+    padding: 6px 16px;
     font-size: 8.5px;
   }
 
@@ -1950,6 +2246,15 @@ button:focus-visible {
     font-size: 10px;
   }
 
+  .hero-secondary-cta {
+    min-width: 155px;
+    font-size: 10px;
+  }
+
+  .conversion-cta-copy h2 {
+    font-size: 20px;
+  }
+
   .logo-orbit {
     width: 112px;
     height: 112px;
@@ -1993,11 +2298,15 @@ button:focus-visible {
 :root.is-theme-transitioning .hero-copy,
 :root.is-theme-transitioning .about-section,
 :root.is-theme-transitioning .services-section,
+:root.is-theme-transitioning .testimonials-section,
+:root.is-theme-transitioning .conversion-cta-section,
 :root.is-theme-transitioning .site-footer,
 :root.is-theme-transitioning .about-image-frame,
 :root.is-theme-transitioning .benefit-item,
 :root.is-theme-transitioning .service-card,
 :root.is-theme-transitioning .service-icon,
+:root.is-theme-transitioning .testimonial-card,
+:root.is-theme-transitioning .conversion-cta-panel,
 :root.is-theme-transitioning .footer-grid > *,
 :root.is-theme-transitioning .footer-bottom {
   transition:
@@ -2012,12 +2321,19 @@ button:focus-visible {
 :root.is-theme-transitioning .main-nav a,
 :root.is-theme-transitioning .hero-copy h1,
 :root.is-theme-transitioning .hero-description,
+:root.is-theme-transitioning .hero-secondary-cta,
 :root.is-theme-transitioning .about-copy h2,
 :root.is-theme-transitioning .about-copy p:not(.section-label),
 :root.is-theme-transitioning .benefit-copy,
 :root.is-theme-transitioning .benefit-copy strong,
 :root.is-theme-transitioning .service-copy h3,
 :root.is-theme-transitioning .service-copy p,
+:root.is-theme-transitioning .service-more-link,
+:root.is-theme-transitioning .testimonial-card p,
+:root.is-theme-transitioning .testimonial-card span,
+:root.is-theme-transitioning .conversion-cta-copy h2,
+:root.is-theme-transitioning .conversion-cta-copy p,
+:root.is-theme-transitioning .conversion-secondary-cta,
 :root.is-theme-transitioning .footer-column h2,
 :root.is-theme-transitioning .footer-contact p,
 :root.is-theme-transitioning .footer-links a,
