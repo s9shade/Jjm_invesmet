@@ -2292,6 +2292,69 @@ button:focus-visible {
   }
 }
 
+@media (max-width: 700px) {
+  html {
+    overflow-x: hidden;
+  }
+
+  .hero-actions {
+    width: 100%;
+    flex-wrap: nowrap;
+    gap: 6px;
+  }
+
+  .hero-actions > a {
+    flex: 0 0 auto;
+    max-width: 100%;
+  }
+
+  .hero-logo-stage {
+    bottom: 50px;
+  }
+
+  .about-main {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 14px;
+  }
+
+  .about-image-frame {
+    height: auto;
+  }
+
+  .about-image-frame img {
+    height: auto;
+    object-fit: contain;
+  }
+
+  .about-copy h2 {
+    font-size: 20px;
+  }
+
+  .about-copy p:not(.section-label) {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .benefit-copy {
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .benefit-copy strong {
+    font-size: 13px;
+  }
+
+  .conversion-cta-section {
+    padding-bottom: 60px;
+  }
+
+  .whatsapp-button {
+    right: max(16px, env(safe-area-inset-right));
+    bottom: max(20px, env(safe-area-inset-bottom));
+  }
+}
+
 :root.is-theme-transitioning body,
 :root.is-theme-transitioning .site-header,
 :root.is-theme-transitioning .hero-section,
