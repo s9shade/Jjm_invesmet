@@ -2520,18 +2520,23 @@ button:focus-visible {
     margin-right: 6px;
   }
 
+  .hero-section {
+    padding-bottom: 10px;
+  }
+
   .hero-layout {
     height: auto;
-    min-height: 0;
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: auto auto;
+    min-height: 480px;
+    grid-template-columns: minmax(0, 58%) minmax(0, 42%);
+    grid-template-rows: minmax(480px, auto);
   }
 
   .hero-copy {
     grid-column: 1;
     grid-row: 1;
     min-width: 0;
-    padding: 32px 20px 28px;
+    overflow: visible;
+    padding: 30px 0 36px clamp(18px, 4.65vw, 20px);
     justify-content: flex-start;
   }
 
@@ -2546,23 +2551,34 @@ button:focus-visible {
   }
 
   .hero-copy h1 {
-    max-width: 100%;
+    position: relative;
+    z-index: 5;
+    width: min(calc(100vw - 36px), 410px);
+    max-width: none;
     margin-top: 10px;
-    padding-bottom: 2px;
-    font-size: clamp(31px, 8.4vw, 35px);
-    line-height: 1.12;
-    overflow-wrap: break-word;
+    padding-bottom: 4px;
+    font-size: clamp(2.15rem, 8.5vw, 3rem);
+    line-height: 1.02;
+    overflow-wrap: normal;
+    word-break: normal;
+    text-wrap: balance;
   }
 
   .hero-description {
-    max-width: 100%;
+    position: relative;
+    z-index: 5;
+    width: min(calc(100vw - 40px), 280px);
+    max-width: none;
     margin-top: 14px;
-    font-size: 14px;
-    line-height: 1.55;
+    font-size: 16px;
+    line-height: 1.5;
   }
 
   .hero-actions {
-    width: 100%;
+    position: relative;
+    z-index: 5;
+    width: 220px;
+    max-width: calc(100vw - 36px);
     margin-top: 18px;
     flex-flow: column wrap;
     align-items: flex-start;
@@ -2588,40 +2604,48 @@ button:focus-visible {
   }
 
   .hero-media {
-    grid-column: 1;
-    grid-row: 2;
+    grid-column: 2;
+    grid-row: 1;
     width: 100%;
-    height: auto;
+    height: 100%;
     min-height: 0;
-    aspect-ratio: 1896 / 891;
+    aspect-ratio: auto;
   }
 
   .hero-media::before {
-    width: 22%;
+    inset: 0;
+    width: 100%;
+    background: linear-gradient(90deg, var(--surface) 0%, var(--surface) 8%, transparent 72%);
   }
 
   .hero-media > .hero-camera-image {
-    position: static;
-    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
     min-width: 0;
-    max-width: 100%;
-    height: 100%;
-    transform: none;
-    object-fit: cover;
-    object-position: center;
+    max-width: none;
+    height: 86%;
+    transform: translate(-68.5%, -50%);
+    object-fit: contain;
+    object-position: 68% center;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 
   .hero-logo-stage {
     position: relative;
-    grid-column: 1;
-    grid-row: 2;
-    align-self: start;
-    justify-self: start;
+    z-index: 3;
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    justify-self: center;
     right: auto;
     bottom: auto;
     width: clamp(112px, 30vw, 130px);
     height: clamp(112px, 30vw, 130px);
-    margin: clamp(12px, 4vw, 18px) 0 0 clamp(16px, 5vw, 22px);
+    margin: 0;
+    transform: translateY(-10px);
   }
 
   .logo-orbit {
